@@ -10,11 +10,11 @@ public class Game {
   private int msElapsed;
   private int timesGet;
   private int timesAvoid;
-  private String userPic = "images/user.gif";
+  private String userPic = "images/character2.gif";
   
   public Game() {
 
-    grid = new Grid(5, 10);
+    grid = new Grid(4, 10);
     userRow = 3;
     msElapsed = 0;
     timesGet = 0;
@@ -46,7 +46,9 @@ public class Game {
     //set "w" key to move the plane up
     if(key == 87){
         //check case where out of bounds
-
+        if (userRow != grid.getNumRows()-1){
+          
+        }
         //change the field for userrow
 
         userRow--;
@@ -60,8 +62,24 @@ public class Game {
 
   }
     //if I push down arrow, then plane goes down
+      if(key == 83){
+        //check case where out of bounds
+        if (userRow != 0){
+          
+        }
+        //change the field for userrow
+
+        userRow--;
 
 
+        //shift the user picture up in the array
+        Location loc = new Location(userRow, 0);
+        grid.setImage(loc, "character2.gif");
+        
+        Location oldLoc = new Location(userRow+1, 0);
+        grid.setImage(oldLoc, null);
+
+  }
   }
   
   public void populateRightEdge(){
