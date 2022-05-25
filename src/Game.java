@@ -7,6 +7,7 @@ public class Game {
 
   private Grid grid;
   private int userRow;
+  private int userCol;
   private int msElapsed;
   private int timesGet;
   private int timesAvoid;
@@ -17,12 +18,13 @@ public class Game {
 
     grid = new Grid(5, 9);
     userRow = 3;
+    userCol = 6;
     msElapsed = 0;
     timesGet = 0;
     timesAvoid = 0;
     updateTitle();
     grid.setBackground(bgPic);
-    grid.setImage(new Location(userRow, 6), userPic);
+    grid.setImage(new Location(userRow, userCol), userPic);
   }
   
   public void play() {
@@ -56,29 +58,26 @@ public class Game {
         userRow--;
 
         //shift the user picture up in the array
-        Location loc = new Location(userRow, 0);
+        Location loc = new Location(userRow, userCol);
         grid.setImage(loc, userPic);
         
-        Location oldLoc = new Location(userRow+1, 0);
+        Location oldLoc = new Location(userRow+1, userCol);
         grid.setImage(oldLoc, null);
 
   }
     //if I push down arrow, then plane goes down
-      if(key == 83){
-        //check case where out of bounds
-        if (userRow != 0){
-          
-        }
+      if(key == 83   && userRow != grid.getNumRows()-1){
+
         //change the field for userrow
 
-        userRow--;
+        userRow++;
 
 
         //shift the user picture up in the array
-        Location loc = new Location(userRow, 0);
-        grid.setImage(loc, "character2.gif");
+        Location loc = new Location(userRow, userCol);
+        grid.setImage(loc, userPic);
         
-        Location oldLoc = new Location(userRow+1, 0);
+        Location oldLoc = new Location(userRow-1, userCol);
         grid.setImage(oldLoc, null);
 
   }
