@@ -22,7 +22,7 @@ public class Game {
     timesAvoid = 0;
     updateTitle();
     grid.setBackground(bgPic);
-    grid.setImage(new Location(userRow, 0), userPic);
+    grid.setImage(new Location(userRow, 6), userPic);
   }
   
   public void play() {
