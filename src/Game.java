@@ -11,15 +11,17 @@ public class Game {
   private int timesGet;
   private int timesAvoid;
   private String userPic = "images/character2.gif";
+  private String bgPic = "images/room.jpg";
   
   public Game() {
 
-    grid = new Grid(4, 10);
+    grid = new Grid(5, 9);
     userRow = 3;
     msElapsed = 0;
     timesGet = 0;
     timesAvoid = 0;
     updateTitle();
+    grid.setBackground(bgPic);
     grid.setImage(new Location(userRow, 0), userPic);
   }
   
