@@ -57,7 +57,7 @@ public class Game {
 
         //shift the user picture up in the array
         Location loc = new Location(userRow, 0);
-        grid.setImage(loc, "user.gif");
+        grid.setImage(loc, userPic);
         
         Location oldLoc = new Location(userRow+1, 0);
         grid.setImage(oldLoc, null);
