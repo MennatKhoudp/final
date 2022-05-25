@@ -46,7 +46,7 @@ public class Game {
     System.out.println(key);
 
     //set "w" key to move the plane up
-    if(key == 87){
+    if(key == 87 && userRow != 0){
         //check case where out of bounds
         if (userRow != grid.getNumRows()-1){
           
