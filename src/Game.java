@@ -14,9 +14,9 @@ public class Game {
   private String userPic = "images/character2.gif";
   private String bgPic = "images/room.jpg";
   
-  public Game() {
+  publicgride() {
 
-    grid = new Grid(5, 9);
+    gr8d = new Grid(5, 9);
     userRow = 3;
     userCol = 6;
     msElapsed = 0;
