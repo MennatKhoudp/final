@@ -82,7 +82,7 @@ public class Game {
         Location oldLoc = new Location(userRow-1, userCol);
         grid.setImage(oldLoc, null);
   }
-
+//
 //if I push "d", then plane goes down
 if(key == 68   && userRow != 0){
   if (userCol != grid.getNumCols()-1){
