@@ -14,9 +14,9 @@ public class Game {
   private String userPic = "images/character2.gif";
   private String bgPic = "images/room.jpg";
   
-  publicgride() {
+  public Game() {
 
-    gr8d = new Grid(5, 9);
+    grid = new Grid(5, 8);
     userRow = 3;
     userCol = 6;
     msElapsed = 0;
@@ -65,9 +65,11 @@ public class Game {
         grid.setImage(oldLoc, null);
 
   }
-    //if I push down arrow, then plane goes down
-      if(key == 83   && userRow != grid.getNumRows()-1){
-
+    //if I push "s", then plane goes down
+      if(key == 83   && userRow != 0){
+        if (userRow != grid.getNumRows()-1){
+          
+        }
         //change the field for userrow
 
         userRow++;
@@ -79,8 +81,43 @@ public class Game {
         
         Location oldLoc = new Location(userRow-1, userCol);
         grid.setImage(oldLoc, null);
-
   }
+
+//if I push "d", then plane goes down
+if(key == 68   && userRow != 0){
+  if (userCol != grid.getNumCols()-1){
+          
+  }
+  //change the field for usercol
+
+  userCol++;
+
+
+  //shift the user picture up in the array
+  Location loc = new Location(userRow, userCol);
+  grid.setImage(loc, userPic);
+  
+  Location oldLoc = new Location(userRow, userCol-1);
+  grid.setImage(oldLoc, null);
+}
+
+if(key == 65   && userRow != 0){
+  if (userCol != grid.getNumCols()-1){
+          
+  }
+  //change the field for usercol
+
+  userCol--;
+
+
+  //shift the user picture up in the array
+  Location loc = new Location(userRow, userCol);
+  grid.setImage(loc, userPic);
+  
+  Location oldLoc = new Location(userRow, userCol+1);
+  grid.setImage(oldLoc, null);
+}
+
   }
   
   public void populateRightEdge(){
