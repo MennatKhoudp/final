@@ -8,6 +8,7 @@ public class Game {
   private Grid grid;
   private int userRow;
   private int userCol;
+  private int totalTime;
   private int msElapsed;
   private int timesGet;
   private int timesAvoid;
@@ -19,6 +20,7 @@ public class Game {
     grid = new Grid(5, 8);
     userRow = 3;
     userCol = 6;
+    totalTime = 15;
     msElapsed = 0;
     timesGet = 0;
     timesAvoid = 0;
@@ -117,6 +119,13 @@ if(key == 65   && userRow != 0){
   Location oldLoc = new Location(userRow, userCol+1);
   grid.setImage(oldLoc, null);
 }
+
+  }
+
+  public void action(){
+    if(userRow == 1 && userCol == 1){
+      totalTime--;
+    }
 
   }
   
