@@ -1,5 +1,5 @@
 /* Class that plays .wav files in the background:
- *  Latest Update: 6/17/2020
+ *  Latest Update: 6/4/2022
  *  Based off of: https://www.ntu.edu.sg/home/ehchua/programming/java/J8c_PlayingSound.html
  *  
  *  You can convert an .mp3 file to a .wav file here:
@@ -38,7 +38,7 @@ public class WavPlayer {
 		try {
 			// Open an audio input stream.
 			//URL url = this.getClass().getClassLoader().getResource(wavMusicFile);
-			w = "apcsa/" + w;
+			//w = "apcsa/" + w;
 			System.out.println(w);
 
 			URL url = new File(w).toURI().toURL();
@@ -62,7 +62,7 @@ public class WavPlayer {
 	 * 
 	 */
 	public WavPlayer(String track) {
-		this.wavMusicFile = "/apcsa/" + track;
+		this.wavMusicFile = track;
 		System.out.println(wavMusicFile);
 		startSound();
 
