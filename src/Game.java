@@ -27,6 +27,8 @@ public class Game {
     updateTitle();
     grid.setBackground(bgPic);
     grid.setImage(new Location(userRow, userCol), userPic);
+
+    WavPlayer.play("sounds/SB18.wav");
   }
   
   public void play() {
