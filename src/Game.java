@@ -139,7 +139,7 @@ if(key == 65   && userRow != 0){
       //shift the user picture up in the array
       Location loc = new Location(userRow, userCol);
       grid.setImage(loc, userPic);
-  grid.setImage(new Location(3,6), null);
+      grid.setImage(new Location(3,6), null);
       // Location oldLoc = new Location(userRow, userCol+1);
       // grid.setImage(oldLoc, null);
     }
