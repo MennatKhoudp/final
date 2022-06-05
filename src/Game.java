@@ -8,6 +8,7 @@ public class Game {
   private Grid grid;
   private int userRow;
   private int userCol;
+  private int totalTimeLeft;
   private int msElapsed;
   private int timesGet;
   private int timesAvoid;
@@ -19,6 +20,7 @@ public class Game {
     grid = new Grid(5, 8);
     userRow = 3;
     userCol = 6;
+    totalTimeLeft = 15;
     msElapsed = 0;
     timesGet = 0;
     timesAvoid = 0;
@@ -32,6 +34,9 @@ public class Game {
     while (!isGameOver()) {
       grid.pause(100);
       handleKeyPress();
+
+      action();
+
       if (msElapsed % 300 == 0) {
         scrollLeft();
         populateRightEdge();
@@ -45,7 +50,10 @@ public class Game {
 
     //check last key pressed
     int key = grid.checkLastKeyPressed();
-    System.out.println(key);
+    if(key != -1){
+      System.out.println(key);
+      System.out.println(new Location(userRow,userCol));
+    }
 
     //set "w" key to move the plane up
     if(key == 87 && userRow != 0){
@@ -119,6 +127,28 @@ if(key == 65   && userRow != 0){
 }
 
   }
+
+  public void action(){
+    if(userRow == 3 && userCol == 6){
+      //System.out.println("strange room");
+      grid.showMessageDialog("You find yourself in a strange room...");
+      userRow--;
+      
+      //shift the user picture up in the array
+      Location loc = new Location(userRow, userCol);
+      grid.setImage(loc, userPic);
+  grid.setImage(new Location(3,6), null);
+      // Location oldLoc = new Location(userRow, userCol+1);
+      // grid.setImage(oldLoc, null);
+    }
+
+    if(userRow == 3 && userCol == 5){
+      totalTimeLeft--;
+      grid.showMessageDialog("You find a note. It says, \"You have 15 minutes to find the key.\"");
+
+    }
+
+  }
   
   public void populateRightEdge(){
 
@@ -132,12 +162,12 @@ if(key == 65   && userRow != 0){
 
   }
   
-  public int getScore() {
-    return 0;
+  public int getTimeLeft() {
+    return this.totalTimeLeft;
   }
   
   public void updateTitle() {
-    grid.setTitle("Game:  " + getScore());
+    grid.setTitle("Time Left:  " + getTimeLeft());
   }
   
   public boolean isGameOver() {
