@@ -175,7 +175,8 @@ if(key == 65   && userRow != 0){
     //table 1
     if(userRow == 4 && userCol == 8){
       //System.out.println("strange room");
-      grid.showMessageDialog("You look around the table and find something under it ");
+      grid.showMessageDialog("You look around the table and find something under it... It's a clue.");
+      grid.showMessageDialog("It says,\" \" ");
       totalTimeLeft--;
       if(totalTimeLeft == 0 || totalTimeLeft < 0){
         grid.showMessageDialog("Game Over");
