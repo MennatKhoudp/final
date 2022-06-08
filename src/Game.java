@@ -60,8 +60,8 @@ public class Game {
     //check last key pressed
     int key = grid.checkLastKeyPressed();
     if(key != -1){
-      System.out.println(key);
-      System.out.println(new Location(userRow,userCol));
+      System.out.print("Key: " + key);
+      System.out.println("\tLoc: " + new Location(userRow,userCol));
     }
 
     //set "w" key to move the plane up
@@ -71,13 +71,6 @@ public class Game {
           
       }
       //change the field for userrow
-
-      userRow--;
-
-      //shift the user picture up in the array
-      Location loc = new Location(userRow, userCol);
-      grid.setImage(loc, userPic);
-      
       Location oldLoc = new Location(userRow+1, userCol);
       grid.setImage(oldLoc, null);
 
@@ -88,10 +81,9 @@ public class Game {
       if (userRow != grid.getNumRows()-1){
         
       }
+      
       //change the field for userrow
-
       userRow++;
-
 
       //shift the user picture up in the array
       Location loc = new Location(userRow, userCol);
@@ -109,7 +101,6 @@ public class Game {
       //change the field for usercol
 
       userCol++;
-
       //shift the user picture up in the array
       Location loc = new Location(userRow, userCol);
       grid.setImage(loc, userPic);
@@ -123,7 +114,6 @@ public class Game {
               
       }
       //change the field for usercol
-
       userCol--;
 
       //shift the user picture up in the array
