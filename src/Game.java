@@ -137,24 +137,13 @@ if(key == 65   && userRow != 0){
     if(userRow == 3 && userCol == 6){
       //System.out.println("strange room");
       grid.showMessageDialog("You find yourself in a strange room...");
+      grid.showMessageDialog("There's a note. It says, \"You have 15 minutes to find the key to escape!\"");
       userRow--;
       
       //shift the user picture up in the array
       Location loc = new Location(userRow, userCol);
       grid.setImage(loc, userPic);
       grid.setImage(new Location(3,6), null);
-    }
-    
-    //note
-    if(userRow == 3 && userCol == 5){
-      totalTimeLeft--;
-      grid.showMessageDialog("You find a note. It says, \"You have 15 minutes to find the key to escape!\"");
-      userRow--;
-
-      //shift the user picture up in the array
-      Location loc = new Location(userRow, userCol);
-      grid.setImage(loc, userPic);
-      grid.setImage(new Location(3,5), null);
     }
 
     //couch
@@ -284,6 +273,7 @@ if(key == 65   && userRow != 0){
       grid.setImage(loc, userPic);
       grid.setImage(new Location(2,4), null);
     }
+    key++;
   }
 
     //table 2
@@ -307,9 +297,9 @@ if(key == 65   && userRow != 0){
     //stairs (win/lose)
     if(userRow == 3 && userCol == 2){
       //System.out.println("strange room");
-      if(key == 1){
+      if(key > 0){
         grid.showMessageDialog("You found the key!");
-
+        grid.showMessageDialog("You win!");
       }else{
         grid.showMessageDialog("You need a key.");
         userRow--;
