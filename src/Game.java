@@ -31,6 +31,7 @@ public class Game {
     grid.setImage(new Location(userRow, userCol), userPic);
 
     WavPlayer.play("sounds/SB18.wav");
+    grid.fullscreen();
   }
   
   public void play() {
