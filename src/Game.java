@@ -31,15 +31,14 @@ public class Game {
     grid.setImage(new Location(userRow, userCol), userPic);
 
     WavPlayer.play("sounds/SB18.wav");
-    grid.fullscreen();
   }
   
   public void play() {
 
     while (!isGameOver()) {
       grid.pause(100);
-      handleKeyPress();
-
+      //handleKeyPress();
+      handleReader();
       action();
 
       if (msElapsed % 300 == 0) {
@@ -50,6 +49,42 @@ public class Game {
       msElapsed += 100;
     }
   }
+  
+  
+  public void handleReader(){
+
+    //check last key pressed
+    int key = grid.checkLastKeyPressed();
+
+    if(key != -1){
+
+
+      int r = key/10;
+      int c = key%10;
+
+
+
+      Location oldLoc = new Location(userRow, userCol);
+      grid.setImage(oldLoc, null);
+
+      //change the field for userrow
+       userRow = r;
+       userCol = c;
+
+       //shift the user picture up in the array
+       Location loc = new Location(userRow, userCol);
+       grid.setImage(loc, userPic);
+       
+       System.out.println(key);
+       System.out.println(new Location(userRow,userCol));
+    }
+  }
+
+
+
+
+
+
   
   public void handleKeyPress(){
 
@@ -130,6 +165,7 @@ if(key == 65   && userRow != 0){
   Location oldLoc = new Location(userRow, userCol+1);
   grid.setImage(oldLoc, null);
 }
+
 
   }
 
