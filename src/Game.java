@@ -295,7 +295,7 @@ if(key == 65   && userRow != 0){
   }
 
     //clock
-    if(userRow == 2 && userCol == 4){
+    if(userRow == 5 && userCol == 3){
       //System.out.println("strange room");
       grid.showMessageDialog("You found the key!");
       totalTimeLeft-=2;
@@ -309,7 +309,7 @@ if(key == 65   && userRow != 0){
       //shift the user picture up in the array
       Location loc = new Location(userRow, userCol);
       grid.setImage(loc, userPic);
-      grid.setImage(new Location(2,4), null);
+      grid.setImage(new Location(5,3), null);
     }
     key++;
   }
