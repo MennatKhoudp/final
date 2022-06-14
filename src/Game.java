@@ -21,7 +21,7 @@ public class Game {
     grid = new Grid(6, 9);
     userRow = 3;
     userCol = 6;
-    totalTimeLeft = 15;
+    totalTimeLeft = 1500;
     key = 0;
     msElapsed = 0;
     timesGet = 0;
@@ -41,10 +41,10 @@ public class Game {
       handleReader();
       action();
 
-      if (msElapsed % 300 == 0) {
-        scrollLeft();
-        populateRightEdge();
-      }
+      // if (msElapsed % 300 == 0) {
+      //   scrollLeft();
+      //   populateRightEdge();
+      // }
       updateTitle();
       msElapsed += 100;
     }
@@ -57,6 +57,7 @@ public class Game {
     int key = grid.checkLastKeyPressed();
 
     if(key != -1){
+      System.out.println("Key " + key);
 
 
       int r = key/10;
@@ -75,7 +76,7 @@ public class Game {
        Location loc = new Location(userRow, userCol);
        grid.setImage(loc, userPic);
        
-       System.out.println(key);
+       //System.out.println(key);
        System.out.println(new Location(userRow,userCol));
     }
   }
@@ -351,17 +352,6 @@ if(key == 65   && userRow != 0){
 
   }
   
-  public void populateRightEdge(){
-
-  }
-  
-  public void scrollLeft(){
-
-  }
-  
-  public void handleCollision(Location loc) {
-
-  }
   
   public int getTimeLeft() {
     return this.totalTimeLeft;
