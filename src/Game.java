@@ -21,7 +21,7 @@ public class Game {
     grid = new Grid(6, 9);
     userRow = 3;
     userCol = 6;
-    totalTimeLeft = 1500;
+    totalTimeLeft = 15;
     key = 0;
     msElapsed = 0;
     timesGet = 0;
